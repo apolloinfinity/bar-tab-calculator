@@ -1,5 +1,6 @@
 class Tab:
 
+    #Class level attribute. Every time a new tab is created, these will remain the same
     menu = {
         'wine': 5,
         'beer': 3, 
@@ -16,7 +17,7 @@ class Tab:
     
     def add(self, item):
         self.items.append(item)
-        self.total += self.menu[item]
+        self.total += self.menu[item] # Gets dict and its key. Key is the price and is what gets added.
 
     def print_bill(self, tax, service):
         tax = (tax/100) * self.total
@@ -24,6 +25,6 @@ class Tab:
         total = self.total + tax + service
 
         for item in self.items:
-            print(f'{item} ${self.menu[item]}')
+            print(f'{item:20} ${self.menu[item]}') # 20 inside the string format gives the final result 20 spaces from it
 
-        print(f'{"Total"} ${total:.2f}')
+        print(f'{"Total":20} ${total:.2f}')
